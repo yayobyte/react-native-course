@@ -1,8 +1,11 @@
 import React from "react";
-import {Text, View, StyleSheet} from "react-native";
+import {Text, View, StyleSheet, TouchableOpacity, ListRenderItemInfo} from "react-native";
 import { globalStyles, GRAY } from '../global.styles';
 
-type GoalItemProps = { value: string};
+type GoalItemProps = {
+    itemData:  ListRenderItemInfo<{id: string, value: string}>,
+    onDelete: (n: string) => void,
+};
 
 const styles = StyleSheet.create({
     goalItem: {
@@ -14,6 +17,12 @@ const styles = StyleSheet.create({
     }
 })
 
-export const GoalItem = ({ value } : GoalItemProps) => (
-    <View style={styles.goalItem}><Text>{value}</Text></View>
-);
+export const GoalItem = ({ itemData, onDelete } : GoalItemProps) => {
+    return (
+        <TouchableOpacity activeOpacity={0.3} onPress={() => onDelete(itemData.item.id)}>
+            <View style={styles.goalItem}>
+                <Text>{itemData.item.value}</Text>
+            </View>
+        </TouchableOpacity>
+    );
+}

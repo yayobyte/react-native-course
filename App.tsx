@@ -18,7 +18,7 @@ export default function App() {
         <View style={styles.container}>
             <SafeAreaView>
                 <GoalInput setCourseGoals={setCourseGoals} />
-                <GoalList courseGoals={courseGoals} />
+                <GoalList courseGoals={courseGoals} setCourseGoals={setCourseGoals} />
             </SafeAreaView>
             <StatusBar style="auto"/>
         </View>

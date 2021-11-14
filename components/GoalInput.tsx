@@ -37,7 +37,7 @@ export const GoalInput = ({ setCourseGoals }: GoalInputProps) => {
         setCourseGoals((prev: GoalListType) => [
             ...prev,
             {
-                id: prev.length.toString(),
+                id: prev.length.toString() + Math.random().toString(),
                 value: enteredGoal,
             }
         ]);
