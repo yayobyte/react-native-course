@@ -7,17 +7,22 @@ import {
 } from 'react-native';
 import {GoalList, GoalListProps} from "./components/GoalList";
 import {GoalInput} from "./components/GoalInput";
+import {Header} from "./components/Header";
+import {AddButton} from "./components/AddButton";
 
 type GoalListType = GoalListProps['courseGoals'];
 
 export default function App() {
     /*State Hooks*/
     const [courseGoals, setCourseGoals] = useState<GoalListType>([]);
+    const [isAddMode, setIsAddMode] = useState(false);
 
     return (
         <View style={styles.container}>
             <SafeAreaView>
-                <GoalInput setCourseGoals={setCourseGoals} />
+                <Header />
+                <AddButton openModal={() => setIsAddMode(true)} />
+                <GoalInput setCourseGoals={setCourseGoals} isAddMode={isAddMode} closeModal={() => setIsAddMode(false)}/>
                 <GoalList courseGoals={courseGoals} setCourseGoals={setCourseGoals} />
             </SafeAreaView>
             <StatusBar style="auto"/>
