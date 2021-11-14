@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+import React, {useState} from 'react';
+import {
+    StyleSheet,
+    View,
+    SafeAreaView,
+} from 'react-native';
+import {GoalList, GoalListProps} from "./components/GoalList";
+import {GoalInput} from "./components/GoalInput";
+
+type GoalListType = GoalListProps['courseGoals'];
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    /*State Hooks*/
+    const [courseGoals, setCourseGoals] = useState<GoalListType>([]);
+
+    return (
+        <View style={styles.container}>
+            <SafeAreaView>
+                <GoalInput setCourseGoals={setCourseGoals} />
+                <GoalList courseGoals={courseGoals} />
+            </SafeAreaView>
+            <StatusBar style="auto"/>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'flex-start',
+    },
 });
