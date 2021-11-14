@@ -4,7 +4,9 @@ import {GoalItem} from "./GoalItem";
 
 const styles = StyleSheet.create({
     goalList: {
+        paddingTop: 26,
         paddingHorizontal: 24,
+        height: '100%'
     },
 });
 

@@ -1,6 +1,7 @@
 import {Button, TextInput, View, StyleSheet, Modal, Text} from "react-native";
 import React, {useState} from "react";
 import {GoalListProps} from "./GoalList";
+import { RED } from "../global.styles";
 
 const PADDING_HORIZONTAL = 24;
 
@@ -28,7 +29,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     closeButton: {
-
     },
     modalHeaderText: {
         fontSize: 36,
@@ -82,7 +82,7 @@ export const GoalInput = ({ setCourseGoals, isAddMode, closeModal }: GoalInputPr
                     <View style={styles.addButton}><Button title={'Add'} onPress={addGoal}/></View>
                 </View>
                 <View style={styles.closeButton}>
-                    <Button title={'Cancel'} onPress={closeModal}/>
+                    <Button color={RED["500"]} title={'Cancel'} onPress={closeModal}/>
                 </View>
             </View>
         </Modal>
