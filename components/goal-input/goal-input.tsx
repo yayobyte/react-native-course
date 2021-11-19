@@ -1,7 +1,7 @@
 import {Button, TextInput, View} from "react-native";
 import React, {useState} from "react";
 import {GoalListProps} from "../goal-list/goal-list";
-import { BottomSheetModal } from "../ui/bottom-sheet-modal/bottom-sheet-modal";
+import { BottomSheetModal } from "../../ui/bottom-sheet-modal/bottom-sheet-modal";
 import { RED } from "../../global.styles";
 import {styles} from "./goal-input.styles";
 
