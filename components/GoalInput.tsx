@@ -1,6 +1,7 @@
-import {Button, TextInput, View, StyleSheet, Modal, Text} from "react-native";
+import {Button, TextInput, View, StyleSheet} from "react-native";
 import React, {useState} from "react";
 import {GoalListProps} from "./GoalList";
+import { BottomSheetModal } from "./ui/bottom-sheet-modal/bottom-sheet-modal";
 import { RED } from "../global.styles";
 
 const PADDING_HORIZONTAL = 24;
@@ -21,23 +22,18 @@ const styles = StyleSheet.create({
         marginEnd: 8,
         paddingVertical: 6,
     },
-    addButton: {
-        flex: 2,
-    },
     modalContainer: {
         justifyContent: 'flex-start',
         flexDirection: 'column',
     },
+    buttonGroup: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: PADDING_HORIZONTAL,
+    },
     closeButton: {
     },
-    modalHeaderText: {
-        fontSize: 36,
-        textAlign: 'center',
-    },
-    modalHeader: {
-        paddingHorizontal: PADDING_HORIZONTAL,
-        paddingTop: 36,
-        paddingBottom: 26,
+    addButton: {
     },
 });
 
@@ -68,23 +64,30 @@ export const GoalInput = ({ setCourseGoals, isAddMode, closeModal }: GoalInputPr
     }
 
     return (
-        <Modal visible={isAddMode} animationType={'slide'} presentationStyle={'formSheet'} >
+        // <Modal visible={isAddMode} animationType={'slide'} presentationStyle={'formSheet'} >
+        <BottomSheetModal
+            isVisible={isAddMode}
+            onCloseEnd={closeModal}
+        >
             <View style={styles.modalContainer}>
-                <View style={styles.modalHeader}>
-                    <Text style={styles.modalHeaderText}>Add New Task</Text>
-                </View>
                 <View style={styles.addContainer}>
                     <TextInput
                         onChangeText={goalInputHandler}
                         style={styles.goalInput}
                         value={enteredGoal}
+                        placeholder={'Sample: Do the bed'}
                     />
-                    <View style={styles.addButton}><Button title={'Add'} onPress={addGoal}/></View>
                 </View>
-                <View style={styles.closeButton}>
-                    <Button color={RED["500"]} title={'Cancel'} onPress={closeModal}/>
+                <View style={styles.buttonGroup}>
+                    <View style={styles.closeButton}>
+                        <Button color={RED["500"]} title={'Cancel'} onPress={closeModal}/>
+                    </View>
+                    <View style={styles.addButton}>
+                        <Button title={'Add'} onPress={addGoal}/>
+                    </View>
                 </View>
             </View>
-        </Modal>
+        </BottomSheetModal>
+        // </Modal>
     );
 }
