@@ -32,7 +32,6 @@ export const GoalInput = ({ setCourseGoals, isAddMode, closeModal }: GoalInputPr
     }
 
     return (
-        // <Modal visible={isAddMode} animationType={'slide'} presentationStyle={'formSheet'} >
         <BottomSheetModal
             isVisible={isAddMode}
             onCloseEnd={closeModal}
@@ -56,6 +55,5 @@ export const GoalInput = ({ setCourseGoals, isAddMode, closeModal }: GoalInputPr
                 </View>
             </View>
         </BottomSheetModal>
-        // </Modal>
     );
 }
