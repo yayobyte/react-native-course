@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import {GoalListProps} from "../goal-list/goal-list";
+import {GoalListControllerProps} from "../goal-list/goal-list.controller";
 import {GoalInputViewProps} from "./goal-input.view";
 
-type GoalListType = GoalListProps['courseGoals'];
+type GoalListType = GoalListControllerProps['courseGoals'];
 
 export type GoalInputControllerProps = {
     setCourseGoals:  React.Dispatch<React.SetStateAction<{id: string, value: string}[]>>,
