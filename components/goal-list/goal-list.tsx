@@ -1,14 +1,7 @@
 import React from "react";
-import {FlatList, StyleSheet} from "react-native";
-import {GoalItem} from "./GoalItem";
-
-const styles = StyleSheet.create({
-    goalList: {
-        paddingTop: 26,
-        paddingHorizontal: 24,
-        height: '100%'
-    },
-});
+import {FlatList} from "react-native";
+import {GoalItem} from "../goal-item/goal-item";
+import {styles} from "./goal-list.styles";
 
 export type GoalListProps = {
     courseGoals: Array<{id: string, value: string}>

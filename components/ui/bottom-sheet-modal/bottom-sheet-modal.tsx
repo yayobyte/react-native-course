@@ -1,26 +1,13 @@
 import React, {useEffect, useRef} from "react";
 import RBSheet from 'react-native-raw-bottom-sheet'
-import {StyleSheet, Text, View} from "react-native";
+import {Text, View} from "react-native";
+import { styles } from './bottom-sheet-modal.styles';
 
 type BottomSheetModalProps = {
     isVisible: boolean,
     children: React.ReactElement,
     onCloseEnd: () => void,
 };
-
-const PADDING_HORIZONTAL = 24;
-
-const styles = StyleSheet.create({
-    modalHeaderText: {
-        fontSize: 18,
-        textAlign: 'center',
-    },
-    modalHeader: {
-        paddingHorizontal: PADDING_HORIZONTAL,
-        paddingTop: 8,
-        paddingBottom: 26,
-    },
-});
 
 export const BottomSheetModal = ({ isVisible, children, onCloseEnd } : BottomSheetModalProps) => {
     const bottomSheetRef = useRef<RBSheet>(null)

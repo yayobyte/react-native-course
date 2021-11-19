@@ -1,14 +1,14 @@
 import {StatusBar} from 'expo-status-bar';
 import React, {useState} from 'react';
 import {
-    StyleSheet,
     View,
     SafeAreaView,
 } from 'react-native';
-import {GoalList, GoalListProps} from "./components/GoalList";
-import {GoalInput} from "./components/GoalInput";
-import {Header} from "./components/Header";
-import {AddButton} from "./components/AddButton";
+import {GoalList, GoalListProps} from "./components/goal-list/goal-list";
+import {GoalInput} from "./components/goal-input/goal-input";
+import {Header} from "./components/header/header";
+import {AddButton} from "./components/add-button/add-button";
+import {styles} from "./App.styles";
 
 type GoalListType = GoalListProps['courseGoals'];
 
@@ -30,10 +30,3 @@ export default function App() {
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
-    },
-});

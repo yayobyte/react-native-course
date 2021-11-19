@@ -1,41 +1,9 @@
-import {Button, TextInput, View, StyleSheet} from "react-native";
+import {Button, TextInput, View} from "react-native";
 import React, {useState} from "react";
-import {GoalListProps} from "./GoalList";
-import { BottomSheetModal } from "./ui/bottom-sheet-modal/bottom-sheet-modal";
-import { RED } from "../global.styles";
-
-const PADDING_HORIZONTAL = 24;
-
-const styles = StyleSheet.create({
-    addContainer: {
-        paddingHorizontal: PADDING_HORIZONTAL,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 26,
-        alignItems: 'center',
-    },
-    goalInput: {
-        flex: 9,
-        borderWidth: 2,
-        borderColor: '#FFF',
-        borderBottomColor: "#E0E0E0",
-        marginEnd: 8,
-        paddingVertical: 6,
-    },
-    modalContainer: {
-        justifyContent: 'flex-start',
-        flexDirection: 'column',
-    },
-    buttonGroup: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginHorizontal: PADDING_HORIZONTAL,
-    },
-    closeButton: {
-    },
-    addButton: {
-    },
-});
+import {GoalListProps} from "../goal-list/goal-list";
+import { BottomSheetModal } from "../ui/bottom-sheet-modal/bottom-sheet-modal";
+import { RED } from "../../global.styles";
+import {styles} from "./goal-input.styles";
 
 type GoalListType = GoalListProps['courseGoals'];
 
@@ -79,10 +47,10 @@ export const GoalInput = ({ setCourseGoals, isAddMode, closeModal }: GoalInputPr
                     />
                 </View>
                 <View style={styles.buttonGroup}>
-                    <View style={styles.closeButton}>
+                    <View>
                         <Button color={RED["500"]} title={'Cancel'} onPress={closeModal}/>
                     </View>
-                    <View style={styles.addButton}>
+                    <View>
                         <Button title={'Add'} onPress={addGoal}/>
                     </View>
                 </View>
