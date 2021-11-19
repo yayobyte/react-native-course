@@ -1,36 +1,18 @@
 import {Button, TextInput, View} from "react-native";
-import React, {useState} from "react";
-import {GoalListProps} from "../goal-list/goal-list";
+import React from "react";
 import { BottomSheetModal } from "../../ui/bottom-sheet-modal/bottom-sheet-modal";
 import { RED } from "../../global.styles";
 import {styles} from "./goal-input.styles";
 
-type GoalListType = GoalListProps['courseGoals'];
-
-type GoalInputProps = {
-    setCourseGoals:  React.Dispatch<React.SetStateAction<{id: string, value: string}[]>>,
-    isAddMode: boolean;
+export type GoalInputViewProps = {
+    goalInputHandler: (f: string) => void,
+    enteredGoal: string,
+    addGoal: () => void,
+    isAddMode: boolean,
     closeModal: () => void,
 }
 
-export const GoalInput = ({ setCourseGoals, isAddMode, closeModal }: GoalInputProps) => {
-    /*State Hooks*/
-    const [enteredGoal, setEnteredGoal] = useState('');
-
-    /*Functions*/
-    const goalInputHandler = (text: string) => setEnteredGoal(text);
-    const addGoal = () => {
-        setCourseGoals((prev: GoalListType) => [
-            ...prev,
-            {
-                id: prev.length.toString() + Math.random().toString(),
-                value: enteredGoal,
-            }
-        ]);
-        setEnteredGoal('');
-        closeModal();
-    }
-
+export const GoalInputView = ({ goalInputHandler, enteredGoal, addGoal, closeModal, isAddMode }: GoalInputViewProps) => {
     return (
         <BottomSheetModal
             isVisible={isAddMode}

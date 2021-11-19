@@ -5,10 +5,10 @@ import {
     SafeAreaView,
 } from 'react-native';
 import {GoalList, GoalListProps} from "./components/goal-list/goal-list";
-import {GoalInput} from "./components/goal-input/goal-input";
 import {Header} from "./components/header/header";
 import {AddButton} from "./components/add-button/add-button";
 import {styles} from "./App.styles";
+import {GoalInput} from "./components/goal-input/";
 
 type GoalListType = GoalListProps['courseGoals'];
 
