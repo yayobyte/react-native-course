@@ -1,15 +1,14 @@
 import {StyleSheet} from "react-native";
-
-const PADDING_HORIZONTAL = 24;
+import {globalStyles} from "../../global.styles";
 
 export const styles = StyleSheet.create({
     modalHeaderText: {
-        fontSize: 18,
+        fontSize: globalStyles.fontSize.medium,
         textAlign: 'center',
     },
     modalHeader: {
-        paddingHorizontal: PADDING_HORIZONTAL,
-        paddingTop: 8,
-        paddingBottom: 26,
+        paddingHorizontal: globalStyles.spacing.xl,
+        paddingTop: globalStyles.spacing.medium,
+        paddingBottom: globalStyles.spacing.xl,
     },
 });

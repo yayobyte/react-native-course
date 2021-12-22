@@ -11,7 +11,7 @@ export const GoalItem = ({ itemData, onDelete } : GoalItemProps) => {
     return (
         <TouchableOpacity activeOpacity={0.3} onPress={() => onDelete(itemData.item.id)}>
             <View style={styles.goalItem}>
-                <Text>{itemData.item.value}</Text>
+                <Text style={styles.goalText}>{itemData.item.value}</Text>
             </View>
         </TouchableOpacity>
     );

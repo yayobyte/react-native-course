@@ -1,13 +1,12 @@
 import {StyleSheet} from "react-native";
-
-const PADDING_HORIZONTAL = 24;
+import {globalStyles} from "../../global.styles";
 
 export const styles = StyleSheet.create({
     addContainer: {
-        paddingHorizontal: PADDING_HORIZONTAL,
+        paddingHorizontal: globalStyles.spacing.xl,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 26,
+        marginBottom: globalStyles.spacing.xl,
         alignItems: 'center',
     },
     goalInput: {
@@ -15,8 +14,8 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#FFF',
         borderBottomColor: "#E0E0E0",
-        marginEnd: 8,
-        paddingVertical: 6,
+        marginEnd: globalStyles.spacing.medium,
+        paddingVertical: globalStyles.spacing.medium,
     },
     modalContainer: {
         justifyContent: 'flex-start',
@@ -25,6 +24,6 @@ export const styles = StyleSheet.create({
     buttonGroup: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginHorizontal: PADDING_HORIZONTAL,
+        marginHorizontal: globalStyles.spacing.xl,
     },
 });
